@@ -84,7 +84,6 @@ export default createComponent({
 <style scoped>
   .list {
       max-width: 450px;
-      padding: 2em;
 
       background-color: white;
   }
@@ -98,7 +97,7 @@ export default createComponent({
 
   h1 {
       font-size: 1.6em;
-      margin-bottom: 0.6em;
+      padding: 1.2em;
   }
 
   ul {
@@ -151,10 +150,11 @@ export default createComponent({
   }
 
   li {
-      padding: 1em;
+      padding: 2em;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-top: 1px dashed rgba(0, 0, 0, 0.2);
   }
 
   li span {
@@ -164,10 +164,6 @@ export default createComponent({
       text-overflow: ellipsis;
       margin-right: 1em;
       white-space: nowrap;
-  }
-
-  li + li {
-      margin-top: 1em;
   }
 
   li.done span {
