@@ -8,11 +8,13 @@
                 :key="id"
                 :class="{ 'done': done }"
             >
-                {{ name }}
+                <span>
+                    {{ name }}
+                </span>
                 
                 <transition name="done-button">
                     <button v-show="!done" type="button" @click="markDone(id)">
-                        Mark as done ✅
+                        Mark done
                     </button>
                 </transition>
             </li>
@@ -155,6 +157,15 @@ export default createComponent({
       display: flex;
       align-items: center;
       justify-content: space-between;
+  }
+
+  li span {
+    flex: 1;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 1em;
+    white-space: nowrap;
   }
 
   li + li {
