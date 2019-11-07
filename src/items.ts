@@ -12,7 +12,7 @@ export default [
   {
     id: 3,
     name: 'Mars bar',
-    done: true
+    done: false
   },
   {
     id: 4,
