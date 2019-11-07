@@ -1,22 +1,22 @@
 export default [
   {
     id: 1,
-    name: 'test',
+    name: 'Apples',
     done: false
   },
   {
     id: 2,
-    name: 'test 2',
+    name: 'Milk',
     done: false
   },
   {
     id: 3,
-    name: 'test 3',
+    name: 'Mars bar',
     done: true
   },
   {
     id: 4,
-    name: 'test 4',
+    name: 'Orange squash',
     done: false
   }
 ]
