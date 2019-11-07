@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { createComponent, computed, reactive, watch } from '@vue/composition-api'
-import items from './../items.ts'
+import items from '../items'
 import Item from './../types/Item'
 
 export default createComponent({
@@ -41,15 +41,15 @@ export default createComponent({
     })
 
     function getIncomplete (items: Item[]): Item[] {
-      return items.filter(item => item.done === false)
+      return items.filter((item: Item) => item.done === false)
     }
 
     function getComplete (items: Item[]): Item[] {
-      return items.filter(item => item.done)
+      return items.filter((item: Item) => item.done)
     }
 
     function getItemById (id: Number): Item|null {
-       const index = state.items.findIndex(item => item.id === id)
+       const index = state.items.findIndex((item: Item) => item.id === id)
 
        if (index === -1) {
          return null
@@ -72,11 +72,6 @@ export default createComponent({
 
       item.done = true
     }
-
-    watch(() => {
-      // eslint-disable-next-line
-      console.log(`Incomplete items length changed: ${incompleteItems.value.length}`)
-    })
 
     return {
       state,
