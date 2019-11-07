@@ -35,7 +35,7 @@ export default createComponent({
         background-color: rgba(0, 0, 0, 0.1);
     }
 
-    @media (min-width: 500px) {
+    @media (min-width: 450px) {
         body {
             padding: 3em;
         }

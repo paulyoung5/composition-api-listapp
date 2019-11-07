@@ -12,11 +12,9 @@
                     {{ name }}
                 </span>
                 
-                <transition name="done-button">
-                    <button v-show="!done" type="button" @click="markDone(id)">
-                        Mark done
-                    </button>
-                </transition>
+                <button type="button" @click="markDone(id)">
+                    Mark done
+                </button>
             </li>
             
             <div class="complete-message">
@@ -85,13 +83,13 @@ export default createComponent({
 
 <style scoped>
   .list {
-      max-width: 500px;
+      max-width: 450px;
       padding: 2em;
 
       background-color: white;
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 450px) {
       .list {
           border-radius: 8px;
           margin: 0 auto;
@@ -99,8 +97,8 @@ export default createComponent({
   }
 
   h1 {
-    font-size: 1.6em;
-    margin-bottom: 0.6em;
+      font-size: 1.6em;
+      margin-bottom: 0.6em;
   }
 
   ul {
@@ -112,29 +110,29 @@ export default createComponent({
   }
 
   ul.finished li {
-    opacity: 0;
-    transition: 0.4s opacity ease-out;
+      opacity: 0;
+      transition: 0.4s opacity ease-out;
   }
 
   .complete-message {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.9) translateY(-10px);
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.9) translateY(-10px);
 
-    text-align: center;
-    font-size: 1.4em;
-    padding: 2em;
+      text-align: center;
+      font-size: 1.4em;
+      padding: 2em;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
   }
 
   .complete-message h2 {
@@ -146,10 +144,10 @@ export default createComponent({
   }
 
   ul.finished .complete-message {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    transition: 0.4s all ease-in-out;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: 0.4s all ease-in-out;
   }
 
   li {
@@ -160,55 +158,51 @@ export default createComponent({
   }
 
   li span {
-    flex: 1;
-    max-width: 80%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-right: 1em;
-    white-space: nowrap;
+      flex: 1;
+      max-width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-right: 1em;
+      white-space: nowrap;
   }
 
   li + li {
-    margin-top: 1em;
+      margin-top: 1em;
   }
 
   li.done span {
-    text-decoration: line-through;
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.4);
-    transition: 0.4s color ease-in-out;
+      text-decoration: line-through;
+      font-style: italic;
+      color: rgba(0, 0, 0, 0.4);
+      transition: 0.4s color ease-in-out;
   }
 
   li:not(.done) span {
-    font-weight: bold;
+      font-weight: bold;
   }
 
   button {
-    padding: 0.6em 0.8em;
-    background-color: hsl(125, 50%, 48%);
-    color: white;
-    font-weight: bold;
-    border: 0;
-    border-radius: 8px;
-    cursor: pointer;
+      padding: 0.6em 0.8em;
+      background-color: hsl(125, 50%, 48%);
+      color: white;
+      font-weight: bold;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+  }
+
+  li.done button {
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.2s all ease-in-out;
   }
 
   button:focus,
   button:hover {
-    background-color: hsl(125, 50%, 43%);
+      background-color: hsl(125, 50%, 43%);
   }
 
   button:active {
-    background-color: hsl(125, 50%, 40%);
-  }
-
-  .done-button-enter-active,
-  .done-button-leave-active {
-      transition: 0.2s opacity ease-in-out;
-  }
-
-  .done-button-enter,
-  .done-button-leave-to {
-      opacity: 0;
+      background-color: hsl(125, 50%, 40%);
   }
 </style>
