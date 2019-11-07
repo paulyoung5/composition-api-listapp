@@ -20,12 +20,10 @@
             <div class="complete-message">
                 <h2>🌅</h2>
 
-                <p>All done. Enjoy your day!</p>
+                <h2>All done.</h2>
+                <p>Enjoy your day!</p>
             </div>
         </ul>
-
-        <span>Incomplete count: {{ incompleteCount }}</span>
-        <span>Complete count: {{ completeCount }}</span>
     </div>
 </template>
 
@@ -122,6 +120,7 @@ export default createComponent({
     transform: scale(0.9) translateY(-10px);
 
     text-align: center;
+    font-size: 1.4em;
     padding: 2em;
 
     display: flex;
@@ -138,6 +137,10 @@ export default createComponent({
 
   .complete-message h2 {
       margin-bottom: 0.4em;
+  }
+
+  .complete-message p {
+      color: rgba(0, 0, 0, 0.6);
   }
 
   ul.finished .complete-message {

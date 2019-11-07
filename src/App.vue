@@ -26,6 +26,7 @@ export default createComponent({
 
     html, body {
         height: 100vh;
+        overflow: hidden;
     }
 
     body {
