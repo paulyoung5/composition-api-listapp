@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <list />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import Vue from 'vue'
+import { createComponent } from '@vue/composition-api'
+import List from './components/List.vue'
 
-export default {
+export default createComponent({
   name: 'app',
   components: {
-    HelloWorld
+    List
   }
-}
+})
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    html, body {
+        height: 100vh;
+    }
+
+    body {
+        font: 16px sans-serif;
+
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 500px) {
+        body {
+            padding: 3em;
+        }
+    }
 </style>
