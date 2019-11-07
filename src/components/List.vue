@@ -172,7 +172,7 @@ export default createComponent({
     margin-top: 1em;
   }
 
-  li.done {
+  li.done span {
     text-decoration: line-through;
     font-style: italic;
     color: rgba(0, 0, 0, 0.4);
@@ -181,12 +181,21 @@ export default createComponent({
 
   button {
     padding: 0.6em 0.8em;
-    background-color: rgba(58, 189, 69, 1);
+    background-color: hsl(125, 50%, 48%);
     color: white;
     font-weight: bold;
     border: 0;
     border-radius: 8px;
     cursor: pointer;
+  }
+
+  button:focus,
+  button:hover {
+    background-color: hsl(125, 50%, 43%);
+  }
+
+  button:active {
+    background-color: hsl(125, 50%, 40%);
   }
 
   .done-button-enter-active,
