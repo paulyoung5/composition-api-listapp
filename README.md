@@ -2,4 +2,4 @@
 
 A little todo-list app to play with Vue's new composition api.
 
-![demo](/demo.png)
+![demo](/demo.gif)
