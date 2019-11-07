@@ -2,9 +2,13 @@
     <div class="list">
         <h1>Shopping list 🛒</h1>
 
-        <ul :class=" { 'finished': (incompleteCount === 0) } ">
+        <transition-group
+            tag="ul"
+            name="items"
+            :class=" { 'finished': (incompleteCount === 0) } "
+        >
             <li
-                v-for="{ id, name, done } in state.items"
+                v-for="{ id, name, done } in sortedItems"
                 :key="id"
                 :class="{ 'done': done }"
             >
@@ -23,12 +27,18 @@
                 <h2>All done</h2>
                 <p>Head to the checkout!</p>
             </div>
-        </ul>
+        </transition-group>
     </div>
 </template>
 
 <script lang="ts">
-import { createComponent, computed, reactive, watch } from '@vue/composition-api'
+import {
+  createComponent,
+  computed,
+  reactive,
+  watch,
+  toRefs
+} from '@vue/composition-api'
 import items from '../items'
 import Item from './../types/Item'
 
@@ -60,6 +70,10 @@ export default createComponent({
     const completeItems = computed(() => getComplete(state.items))
     const incompleteCount = computed(() => incompleteItems.value.length)
     const completeCount = computed(() => completeItems.value.length)
+    const sortedItems = computed(() => [
+      ...incompleteItems.value,
+      ...completeItems.value
+    ])
 
     function markDone (itemId: Number) {
       const item = getItemById(itemId)
@@ -72,7 +86,7 @@ export default createComponent({
     }
 
     return {
-      state,
+      sortedItems,
       incompleteCount,
       completeCount,
       markDone
@@ -106,6 +120,10 @@ export default createComponent({
 
       list-style: none;
       position: relative;
+  }
+
+  .items-move {
+      transition: transform 0.2s ease-out;
   }
 
   ul.finished li {
