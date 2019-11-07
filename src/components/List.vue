@@ -16,16 +16,19 @@
                     {{ name }}
                 </span>
                 
-                <button type="button" @click="markDone(id)">
+                <button class="mark-done" type="button" @click="markDone(id)">
                     Mark done
                 </button>
             </li>
             
-            <div class="complete-message">
+            <div class="complete-message" key="message">
                 <h2>✅</h2>
 
                 <h2>All done</h2>
                 <p>Head to the checkout!</p>
+                <button class="reset" type="button" @click="reset">
+                    Or start again..
+                </button>
             </div>
         </transition-group>
     </div>
@@ -85,11 +88,18 @@ export default createComponent({
       item.done = true
     }
 
+    function reset () {
+      state.items.forEach(item => {
+        item.done = false
+      })
+    }
+
     return {
       sortedItems,
       incompleteCount,
       completeCount,
-      markDone
+      markDone,
+      reset
     }
   }
 })
@@ -128,7 +138,6 @@ export default createComponent({
 
   ul.finished li {
       opacity: 0;
-      transition: 0.4s opacity ease-out;
   }
 
   .complete-message {
@@ -150,6 +159,8 @@ export default createComponent({
       left: 0;
       right: 0;
       bottom: 0;
+
+      transition: 0.4s all ease-in-out;
   }
 
   .complete-message h2 {
@@ -164,7 +175,6 @@ export default createComponent({
       opacity: 1;
       visibility: visible;
       transform: none;
-      transition: 0.4s all ease-in-out;
   }
 
   li {
@@ -173,6 +183,7 @@ export default createComponent({
       align-items: center;
       justify-content: space-between;
       border-top: 1px dashed rgba(0, 0, 0, 0.2);
+      transition: 0.4s opacity ease-out;
   }
 
   li span {
@@ -196,27 +207,44 @@ export default createComponent({
   }
 
   button {
+      background-color: hsl(0, 0%, 85%);
       padding: 0.6em 0.8em;
-      background-color: hsl(125, 50%, 48%);
-      color: white;
       font-weight: bold;
       border: 0;
       border-radius: 8px;
       cursor: pointer;
   }
 
-  li.done button {
+  button:focus,
+  button:hover {
+      background-color: hsl(0, 0%, 80%);
+  }
+
+  button:active {
+      background-color: hsl(0, 0%, 75%);
+  }
+
+  button.mark-done {
+      background-color: hsl(125, 50%, 48%);
+      color: white;
+  }
+
+  li.done button.mark-done {
       visibility: hidden;
       opacity: 0;
       transition: 0.2s all ease-in-out;
   }
 
-  button:focus,
-  button:hover {
+  button.mark-done:focus,
+  button.mark-done:hover {
       background-color: hsl(125, 50%, 43%);
   }
 
-  button:active {
+  button.mark-done:active {
       background-color: hsl(125, 50%, 40%);
+  }
+
+  button.reset {
+      margin-top: 2em;
   }
 </style>
