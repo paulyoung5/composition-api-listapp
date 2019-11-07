@@ -18,10 +18,10 @@
             </li>
             
             <div class="complete-message">
-                <h2>🌅</h2>
+                <h2>✅</h2>
 
-                <h2>All done.</h2>
-                <p>Enjoy your day!</p>
+                <h2>All done</h2>
+                <p>Head to the checkout!</p>
             </div>
         </ul>
     </div>
