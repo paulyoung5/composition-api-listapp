@@ -179,6 +179,10 @@ export default createComponent({
     transition: 0.4s color ease-in-out;
   }
 
+  li:not(.done) span {
+    font-weight: bold;
+  }
+
   button {
     padding: 0.6em 0.8em;
     background-color: hsl(125, 50%, 48%);
