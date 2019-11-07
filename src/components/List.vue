@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { createComponent, computed, reactive, watch } from '@vue/composition-api'
-import items from './../items'
+import items from './../items.ts'
 import Item from './../types/Item'
 
 export default createComponent({
